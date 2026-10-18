@@ -18,3 +18,4 @@ class Player(Sprite):
         if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
             self.image = pygame.transform.flip(self.orig_image, True, False)
             self.rect.x += self.speed
+
