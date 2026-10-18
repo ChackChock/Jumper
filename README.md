@@ -1,4 +1,4 @@
-# Jumper <img src="assets/player.png" width="20px">
+# Jumper ![doodle](assets/player.png)
 
 Простая игра в стиле `Doodle Jump`, написанная на `Python`.
 
