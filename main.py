@@ -1,16 +1,17 @@
 import pygame
 
+from src.config import WIN_SIZE
 from src.player import Player
 from src.sprite import Sprite
 
 
 def main():
-    window = pygame.Window("Jumper", [400, 600])
+    window = pygame.Window("Jumper", WIN_SIZE)
     surface = window.get_surface()
     clock = pygame.Clock()
 
     background_image = pygame.image.load("assets/background.png")
-    background_image = pygame.transform.scale(background_image, [400, 600])
+    background_image = pygame.transform.scale(background_image, WIN_SIZE)
 
     platform_image = pygame.image.load("assets/platform.png")
     platform = Sprite([200, 550], platform_image)
