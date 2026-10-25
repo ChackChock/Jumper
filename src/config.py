@@ -1,1 +1,9 @@
+# App
 WIN_WIDTH, WIN_HEIGHT = WIN_SIZE = (400, 600)
+
+# Player
+GRAVITY = 0.45
+JUMP_POWER = 15
+
+# Platform
+SPAWN_STEP = 150

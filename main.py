@@ -1,6 +1,8 @@
+from random import randint
+
 import pygame
 
-from src.config import WIN_SIZE
+from src.config import SPAWN_STEP, WIN_SIZE, WIN_WIDTH
 from src.player import Player
 from src.sprite import Sprite
 
@@ -14,7 +16,9 @@ def main():
     background_image = pygame.transform.scale(background_image, WIN_SIZE)
 
     platform_image = pygame.image.load("assets/platform.png")
-    platform = Sprite([200, 550], platform_image)
+    platforms = [Sprite([200, 550], platform_image)]
+    for y in range(550 - SPAWN_STEP, 0, -SPAWN_STEP):
+        platforms.append(Sprite([randint(0, WIN_WIDTH), y], platform_image))
 
     player_image = pygame.image.load("assets/player.png")
     player = Player([200, 450], player_image, 6)
@@ -26,10 +30,11 @@ def main():
             if event.type == pygame.WINDOWCLOSE:
                 running = False
 
-        player.update()
+        player.update(platforms)
 
         surface.blit(background_image)
-        platform.render(surface)
+        for platform in platforms:
+            platform.render(surface)
         player.render(surface)
 
         window.flip()
